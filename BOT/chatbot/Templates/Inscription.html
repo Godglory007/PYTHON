@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- Chargement direct des icônes via CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(90deg, #c7c5f4, #776bcc);
+        }
+
+        .container {
+            position: relative;
+            width: 400px;
+            padding: 40px 30px;
+            background: linear-gradient(90deg, #5d54a4, #7c7888);
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-field {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .login-field input {
+            width: 100%;
+            padding: 10px 40px 10px 40px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            background: #d1d1d4;
+            color: #4c489d;
+            font-size: 16px;
+            padding-right: 45px; /* Espace pour l'icône */
+        }
+
+        .login-field i.bi {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #787585;
+        }
+
+        .login-field i.bi-person-fill,
+        .login-field i.bi-key-fill {
+            left: 15px;
+        }
+
+        .show-password-button {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #787585;
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .show-password-button:hover {
+            color: #4c489d;
+        }
+
+        .show-password-button i {
+            font-size: 18px;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 20px;
+            background: #fff;
+            color: #4c489d;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background: #4c489d;
+            color: #fff;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .signup-link p {
+            color: #fff;
+        }
+
+        .signup-link a {
+            color: #FFD700;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>S'Inscrire</h2> 
+        <Form action="{% url 'inscription' %}" method="POST">
+            {% csrf_token %}          
+            <div class="login-field">
+                <i class="bi bi-person-fill"></i>
+                <input type="text" id="username" name="username" placeholder="Nom d'utilisateur" required>
+            </div>
+            <div class="login-field">
+                <i class="bi bi-key-fill"></i>
+                <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                <button type="button" class="show-password-button" onclick="togglePasswordVisibility('password')">
+                    <i class="bi bi-eye-slash-fill" id="password-icon"></i>
+                </button>
+            </div>
+            <div class="login-field">
+                <i class="bi bi-key-fill"></i>
+                <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirmer mot de passe" required>
+                <button type="button" class="show-password-button" onclick="togglePasswordVisibility('confirmpassword')">
+                    <i class="bi bi-eye-slash-fill" id="confirmpassword-icon"></i>
+                </button>
+            </div>
+            <button type="submit" class="login-btn">Inscription</button>
+            <div class="signup-link">
+                <p>Déja inscrit ? <a href="{% url 'connexion' %}">Se connecter</a></p>
+            </div>
+        </Form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Script chargé');
+        });
+
+        function togglePasswordVisibility(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(inputId + '-icon');
+            
+            if (!input || !icon) {
+                console.error('Éléments non trouvés:', inputId);
+                return;
+            }
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('bi-eye-slash-fill');
+                icon.classList.add('bi-eye-fill');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('bi-eye-fill');
+                icon.classList.add('bi-eye-slash-fill');
+            }
+        }
+    </script>
+</body>
+</html>

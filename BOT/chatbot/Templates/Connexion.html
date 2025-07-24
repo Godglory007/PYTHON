@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Se Connecter</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #002855, #004080);
+    color: #fff;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 380px;
+    padding: 30px 25px;
+    background: linear-gradient(90deg, #003366, #0059b3);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+
+  .login-field {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .login-field input {
+    width: 100%;
+    padding: 10px 40px 10px 40px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    background-color: #e5e5e5;
+    color: #002855;
+    transition: background-color 0.3s ease;
+  }
+
+  .login-field input:focus {
+    background-color: #fff;
+    box-shadow: 0 0 5px #ffd700;
+  }
+
+  .login-field i.bi {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #ffd700;
+  }
+
+  .show-password-button {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ffd700;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  .show-password-button:hover {
+    color: #fff056;
+  }
+
+  .show-password-button i {
+    font-size: 18px;
+  }
+
+  .login-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffd700;
+    color: #002855;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .login-btn:hover {
+    background-color: #e6c200;
+    color: #001f3f;
+  }
+
+  .signup-link {
+    margin-top: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .signup-link a {
+    color: #ffd700;
+    font-weight: 700;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+  }
+
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 420px) {
+    .container {
+      padding: 20px 15px;
+      width: 90%;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Se Connecter</h2>
+  <form id="loginForm" method="POST" action="{% url 'connexion' %}">
+    {% csrf_token %}
+    <div class="login-field">
+      <i class="bi bi-person-fill" aria-hidden="true"></i>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Nom d'utilisateur"
+        required
+        aria-label="Nom d'utilisateur"
+      />
+    </div>
+    <div class="login-field">
+      <i class="bi bi-key-fill" aria-hidden="true"></i>
+      <input
+        type="password"
+        id="password"
+        name="password1"
+        placeholder="Mot de passe"
+        required
+        aria-label="Mot de passe"
+      />
+      <button
+        type="button"
+        class="show-password-button"
+        onclick="togglePasswordVisibility('password')"
+        aria-label="Afficher ou masquer le mot de passe"
+      >
+        <i class="bi bi-eye-slash-fill" id="password-icon"></i>
+      </button>
+    </div>
+    <button type="submit" class="login-btn">Connexion</button>
+    <div class="signup-link">
+      <p>
+        Pas encore inscrit ? <a href="{% url 'inscription' %}">S'inscrire</a>
+      </p>
+    </div>
+  </form>
+</div>
+
+<script>
+  function togglePasswordVisibility(inputId) {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(inputId + "-icon");
+    if (!input || !icon) return;
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.replace("bi-eye-slash-fill", "bi-eye-fill");
+    } else {
+      input.type = "password";
+      icon.classList.replace("bi-eye-fill", "bi-eye-slash-fill");
+    }
+  }
+</script>
+</body>
+</html>
