@@ -91,5 +91,17 @@ STATICFILES_DIRS = [
     #BASE_DIR / "static"
 ]  # Si tu as un dossier static global
 
+# Configuration des fichiers média
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Type de clé primaire par défaut
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Clé API Gemini (à remplacer par votre vraie clé)
+GEMINI_API_KEY = "AIzaSyAN-vqOtO1T2r_I9fdwXsFAtKf1t_NLm3k"
+if not GEMINI_API_KEY:
+    raise ValueError("La clé API Gemini est manquante. Veuillez la définir dans settings.py.")
+
+
+#AIzaSyBlwPg9TgRSOSg89DyjeTUM1KjU8RmZshc

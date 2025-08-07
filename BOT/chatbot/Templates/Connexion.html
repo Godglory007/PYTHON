@@ -14,12 +14,13 @@
     font-family: 'Poppins', sans-serif;
   }
 
-  body {
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(90deg, #002855, #004080);
+    background: url('https://www.goafricaonline.com/uploads/media/default/0001/12/577f795e65a25-utb.jpg') center center no-repeat fixed;
+    background-size: cover;
     color: #fff;
   }
 
@@ -27,15 +28,16 @@
     width: 100%;
     max-width: 380px;
     padding: 30px 25px;
-    background: linear-gradient(90deg, #003366, #0059b3);
+    background: rgba(0, 40, 85, 0.92);
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 2px solid #fff;
   }
 
   h2 {
     text-align: center;
     margin-bottom: 25px;
-    color: #ffd700;
+    color: #fff;
     text-transform: uppercase;
     letter-spacing: 1.2px;
   }
@@ -49,17 +51,18 @@
     width: 100%;
     padding: 10px 40px 10px 40px;
     border-radius: 20px;
-    border: none;
+    border: 1.5px solid #fff;
     font-size: 16px;
     outline: none;
-    background-color: #e5e5e5;
+    background-color: #fff;
     color: #002855;
     transition: background-color 0.3s ease;
   }
 
   .login-field input:focus {
-    background-color: #fff;
-    box-shadow: 0 0 5px #ffd700;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 5px #fff;
+    border: 1.5px solid #fff;
   }
 
   .login-field i.bi {
@@ -68,7 +71,7 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 18px;
-    color: #ffd700;
+    color: #fff;
   }
 
   .show-password-button {
@@ -78,7 +81,7 @@
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: #ffd700;
+    color: #fff;
     cursor: pointer;
     padding: 5px;
     display: flex;
@@ -88,9 +91,8 @@
   }
 
   .show-password-button:hover {
-    color: #fff056;
+    color: #b3c6ff;
   }
-
   .show-password-button i {
     font-size: 18px;
   }
@@ -100,17 +102,19 @@
     padding: 12px;
     border-radius: 20px;
     border: none;
-    background-color: #ffd700;
-    color: #002855;
+    background-color: #fff;
+    color: #003366;
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 0 2px 8px #00285533;
   }
 
   .login-btn:hover {
-    background-color: #e6c200;
-    color: #001f3f;
+    background-color: #003366;
+    color: #fff;
+    border: 1.5px solid #fff;
   }
 
   .signup-link {
@@ -121,7 +125,7 @@
   }
 
   .signup-link a {
-    color: #ffd700;
+    color: #b3c6ff;
     font-weight: 700;
     text-decoration: none;
     transition: text-decoration 0.3s ease;

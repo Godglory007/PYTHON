@@ -20,22 +20,28 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(90deg, #c7c5f4, #776bcc);
+            background: url('https://www.goafricaonline.com/uploads/media/default/0001/12/577f795e65a25-utb.jpg') center center no-repeat fixed;
+            background-size: cover;
+            color: #fff;
         }
 
         .container {
-            position: relative;
-            width: 400px;
-            padding: 40px 30px;
-            background: linear-gradient(90deg, #5d54a4, #7c7888);
+            width: 100%;
+            max-width: 380px;
+            padding: 30px 25px;
+            background: rgba(0, 40, 85, 0.92);
             border-radius: 12px;
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 2px solid #fff;
             color: #fff;
         }
 
         .container h2 {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
         }
 
         .login-field {
@@ -46,13 +52,14 @@
         .login-field input {
             width: 100%;
             padding: 10px 40px 10px 40px;
-            border: none;
             border-radius: 20px;
-            outline: none;
-            background: #d1d1d4;
-            color: #4c489d;
+            border: 1.5px solid #fff;
             font-size: 16px;
-            padding-right: 45px; /* Espace pour l'icône */
+            outline: none;
+            background-color: #fff;
+            color: #002855;
+            transition: background-color 0.3s ease;
+            padding-right: 45px;
         }
 
         .login-field i.bi {
@@ -60,7 +67,7 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 18px;
-            color: #787585;
+            color: #fff;
         }
 
         .login-field i.bi-person-fill,
@@ -75,7 +82,7 @@
             transform: translateY(-50%);
             background: none;
             border: none;
-            color: #787585;
+            color: #fff;
             cursor: pointer;
             padding: 5px;
             display: flex;
@@ -85,7 +92,7 @@
         }
 
         .show-password-button:hover {
-            color: #4c489d;
+            color: #b3c6ff;
         }
 
         .show-password-button i {
@@ -99,16 +106,18 @@
             border: none;
             border-radius: 20px;
             background: #fff;
-            color: #4c489d;
+            color: #003366;
             font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
-            transition: 0.3s ease;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 8px #00285533;
         }
 
         .login-btn:hover {
-            background: #4c489d;
+            background: #003366;
             color: #fff;
+            border: 1.5px solid #fff;
         }
 
         .signup-link {
@@ -121,7 +130,7 @@
         }
 
         .signup-link a {
-            color: #FFD700;
+            color: #b3c6ff;
             font-weight: bold;
             text-decoration: none;
         }
